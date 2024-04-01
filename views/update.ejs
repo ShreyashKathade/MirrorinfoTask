@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4">Edit Product</h2>
+            <form action="/edit/<%= product._id %>" method="post">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" value="<%= product.title %>">
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter description"><%= product.description %></textarea>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status" name="status">
+                        <option value="Available" <%= product.status === 'Available' ? 'selected' : '' %>>Available</option>
+                        <option value="Not Available" <%= product.status === 'Not Available' ? 'selected' : '' %>>Not Available</option>
+                    </select>
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn btn-primary btn-block">Update Product</button>
+            </form>
+        </div>
+    </div>
+</div>
